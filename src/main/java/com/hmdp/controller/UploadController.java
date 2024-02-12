@@ -1,5 +1,4 @@
 package com.hmdp.controller;
-
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 import com.hmdp.dto.Result;
@@ -11,12 +10,10 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
-
 @Slf4j
 @RestController
 @RequestMapping("upload")
 public class UploadController {
-
     @PostMapping("blog")
     public Result uploadImage(@RequestParam("file") MultipartFile image) {
         try {
@@ -33,7 +30,6 @@ public class UploadController {
             throw new RuntimeException("文件上传失败", e);
         }
     }
-
     @GetMapping("/blog/delete")
     public Result deleteBlogImg(@RequestParam("name") String filename) {
         File file = new File(SystemConstants.IMAGE_UPLOAD_DIR, filename);
